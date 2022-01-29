@@ -1,5 +1,6 @@
 import 'package:after_release_tracker/games/game_info.dart';
 import 'package:after_release_tracker/games/games_overview.dart';
+import 'package:after_release_tracker/models/game_stored.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String? _selectedGame;
+  GameStored? _selectedGame;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
