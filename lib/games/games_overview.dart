@@ -1,20 +1,27 @@
-import 'package:after_release_tracker/utils/default_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class GamesOverview extends StatelessWidget {
-  const GamesOverview({Key? key}) : super(key: key);
+  final _games = ["Game#1", "Game#2", "Game#3"];
+
+  final ValueChanged didSelectGame;
+
+  GamesOverview({required this.didSelectGame});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DefaultAppBar(),
-      body: Text("Games Overview"),
-      floatingActionButton: IconButton(
-        icon: Icon(Icons.search),
-        onPressed: () {
-          Navigator.pushNamed(context, '/search');
-        },
-      ),
+      appBar: AppBar(title: Text("Games")),
+      body: ListView.builder(
+          itemCount: _games.length,
+          itemBuilder: (context, index) {
+            final game = _games[index];
+            return Card(
+              child: ListTile(
+                title: Text(game),
+                onTap: () => didSelectGame(game),
+              ),
+            );
+          }),
     );
   }
 }

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
 class GameInfo extends StatelessWidget {
-  const GameInfo({Key? key}) : super(key: key);
+  final String game;
+  GameInfo({required this.game});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("Games Info"),
+      appBar: AppBar(
+        title: Text(game),
+      ),
+      body: Text(game),
     );
   }
 }
